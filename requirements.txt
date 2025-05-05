@@ -1,0 +1,16 @@
+faiss-cpu 
+langchain-groq 
+crewai 
+serper 
+pypdf2 
+python-dotenv 
+setuptools 
+sentence-transformers 
+huggingface 
+distutils
+langchain 
+langchain_community 
+langchain-openai 
+scikit-learn 
+langchain-ollama
+# faiss-gpu
