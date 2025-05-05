@@ -1,0 +1,5 @@
+*.md
+data/.DS_Store
+faiss_index_/
+src/__pycache__/
+.DS_Store

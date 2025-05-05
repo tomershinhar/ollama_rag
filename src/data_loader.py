@@ -1,7 +1,6 @@
 import os
 from langchain_community.document_loaders import WebBaseLoader, TextLoader, PythonLoader, PyPDFLoader
 from langchain.text_splitter import RecursiveCharacterTextSplitter
-from langchain.text_splitter import CharacterTextSplitter
 # List of URLs to load documents from
 urls_default_list = [
     "<https://lilianweng.github.io/posts/2023-06-23-agent/>",
@@ -34,7 +33,7 @@ def load_from_directories(paths):
                 pdf_files.append(PyPDFLoader(filename).load())
             elif filename.endswith(".py"):
                 python_files.append(PythonLoader(filename).load())
-            elif filename.endswith(".txt"):
+            elif filename.endswith(".txt") or filename.endswith(".md"):
                 text_files.append(TextLoader(filename).load())
     documents = (
         [item for sublist in pdf_files for item in sublist] + 

@@ -5,10 +5,10 @@ from langchain_core.output_parsers import StrOutputParser
 def set_ollama():
     prompt = PromptTemplate(
         template="""You are an assistant for question-answering tasks.
-        Use the following documents to answer the question, but don't metion the document in your answer.
+        Use the following documents to answer the question, but don't mention the documents existence in your answer.
         If the question is unrelated to the information in the documents, just say so.
         Keep the answers to the point, only talk about what you do know and not about what you don't know.
-        Use three sentences maximum and keep the answer concise:
+        Keep the answer concise:
         Question: {question}
         Documents: {documents}
         Answer:
@@ -18,7 +18,7 @@ def set_ollama():
 
     # Initialize the LLM with Llama 3.1 model
     llm = ChatOllama(
-        model="llama3.2",
+        model="gemma3:4b",
         temperature=0,
     )
     # Create a chain combining the prompt template and LLM

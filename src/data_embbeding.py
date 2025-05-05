@@ -1,6 +1,5 @@
-from langchain_community.vectorstores import SKLearnVectorStore
-from langchain.vectorstores import FAISS
-from langchain.embeddings import HuggingFaceEmbeddings
+from langchain_community.vectorstores import FAISS
+from langchain_community.embeddings import HuggingFaceEmbeddings
 # Create embeddings for documents and store them in a vector store
 def create_embedding(doc_splits):
     embedding_model_name = "sentence-transformers/all-mpnet-base-v2"
@@ -13,11 +12,5 @@ def create_embedding(doc_splits):
     vectorstore.save_local("faiss_index_")
     persisted_vectorstore = FAISS.load_local("faiss_index_", embeddings, allow_dangerous_deserialization=True)
     retriever = persisted_vectorstore.as_retriever()
-    """
-    vectorstore = SKLearnVectorStore.from_documents(
-        documents=doc_splits,
-        embedding=embeddings,
-    )
-    retriever = vectorstore.as_retriever(k=4)
-    """
+
     return retriever
